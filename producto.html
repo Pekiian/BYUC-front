@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYUC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <img src="img/logo-header.png" class="logo" alt="Logo Byuc">
+    
+                <div class="search-bar intern-nav">
+            <input type="text" class="search-bar" placeholder="Buscar componentes, monitores,...">
+            <a href="compras.html"><img src="img/plus-icon.png" class="vector" alt="Icono Carrito"></a>
+        </div>
+
+        <div class="nav-icons intern-nav">
+            <a href="agregar-producto.html"><img src="img/plus-icon.png" alt="Símbolo Más"></a>
+            <a href="perfil.html"><img src="img/plus-icon.png" alt="Símbolo User"></a>
+            <a href="login.html"><img src="img/plus-icon.png" alt="Símbolo Salir"></a>
+            <a href="mis-productos.html"><img src="img/plus-icon.png" alt="Símbolo Menú"></a>
+        </div>
+    </header>
+
+    <main class="producto-container">
+        <div class="fotos">
+            <img src="img/cpu-resultado.png" alt="Foto del Componente">
+        
+            <div class="fotitos-xd">
+                <img src="img/cpu-resultado.png" alt="Foto GPU">
+                <img src="img/placas-de-video.png" alt="Foto GPU">
+                <img src="img/placas-de-video.png" alt="Foto GPU">
+                <img src="img/placas-de-video.png" alt="Foto GPU">
+                <img src="img/placas-de-video.png" alt="Foto GPU">
+            </div>
+        </div>
+
+        <script>
+            const imagenesChiquitas = document.querySelectorAll('.fotitos-xd img')
+            const imagenPrincipal = document.querySelector('.fotos img')
+
+            imagenesChiquitas.forEach(imagen => {
+                imagen.addEventListener('click', (e) => {
+                    let ruta = e.target.src.split('http://127.0.0.1:5500/')[1]
+                    imagenPrincipal.src = ruta
+                })
+            })
+        </script>
+
+        <div class="info">
+            <h2>Titulo del Producto</h2>
+        
+            <h2>$6.969</h2>
+
+            <p>Descripcion del producto, ej: Placa de video ASUS 1660, estado del producto, tiempo de uso, etc</p>
+            <p>Informacon del vendedor, ej:  Direccion, cuando llega el pedido, la reputacion del vendedor.</p>
+
+            <div class="btn-box">
+                <div class="btn-comprar">COMPRAR</div>
+                <div class="btn-wish-list">Agregar a lista de <br> deseados</div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="ayuda-footer">
+            <h4>¿Necesitas Ayudas?</h4>
+            <p>Comentanos tu duda o algo que te moleste</p>
+        </div>
+
+        <div class="redes-footer">
+            <h4>¿Quienes Somos?</h4>
+            <div class="redes-box">
+                <img src="img/logo-instagram.png" alt="Logo Instagram">
+                <img src="img/logo-email.png" alt="Logo Email">
+            </div>
+        </div>
+
+        <div class="easy-way-out"></div>
+    </footer>
+</body>
+</html>

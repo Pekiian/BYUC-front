@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYUC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <img src="img/logo-header.png" class="logo" alt="Logo Byuc">
+    
+                <div class="search-bar intern-nav">
+            <input type="text" class="search-bar" placeholder="Buscar componentes, monitores,...">
+            <a href="compras.html"><img src="img/plus-icon.png" class="vector" alt="Icono Carrito"></a>
+        </div>
+
+        <div class="nav-icons intern-nav">
+            <a href="agregar-producto.html"><img src="img/plus-icon.png" alt="Símbolo Más"></a>
+            <a href="perfil.html"><img src="img/plus-icon.png" alt="Símbolo User"></a>
+            <a href="login.html"><img src="img/plus-icon.png" alt="Símbolo Salir"></a>
+            <a href="mis-productos.html"><img src="img/plus-icon.png" alt="Símbolo Menú"></a>
+        </div>
+    </header>
+
+    <main class="agregar-producto">
+        <h2>¿Quieres vender un producto?</h2>
+
+        <form action="" class="agregar">
+            <div class="texto">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre">
+
+                <label for="descripcion">Descripción del producto:</label>
+                <textarea name="descripcion" id="descripcion" placeholder="Descripción completa del producto"></textarea>
+            </div>
+            <div class="otros">
+                <div class="fotos">
+                    <div class="text-foto">
+                        <label for="fotos" class="text-foto">
+                            Agregar fotos del producto                            
+                            <img src="img/plus-icon.png" alt="Icono Agregar Foto">
+                        </label>                        
+                        <input type="file" name="" id="fotos">
+                    </div>
+                    <!-- <input type="file" name="fotos" id="fotos" class="agregar-foto"> -->
+
+                    <div class="grid-fotos">
+                        <img src="img/cpu-resultado.png" alt="Foto de un CPU">
+                        <img src="img/cpu-resultado.png" alt="Foto de un CPU">
+                        <img src="img/cpu-resultado.png" alt="Foto de un CPU">
+                        <img src="img/cpu-resultado.png" alt="Foto de un CPU">
+                    </div>
+                </div>
+
+                <div class="precio">
+                    <label for="precio">Precio:</label>
+                    <input type="number" name="precio" id="precio">
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <footer class="site-footer">
+        <div class="ayuda-footer">
+            <h4>¿Necesitas Ayudas?</h4>
+            <p>Comentanos tu duda o algo que te moleste</p>
+        </div>
+
+        <div class="redes-footer">
+            <h4>¿Quienes Somos?</h4>
+            <div class="redes-box">
+                <img src="img/logo-instagram.png" alt="Logo Instagram">
+                <img src="img/logo-email.png" alt="Logo Email">
+            </div>
+        </div>
+
+        <div class="easy-way-out"></div>
+    </footer>
+</body>
+</html>
