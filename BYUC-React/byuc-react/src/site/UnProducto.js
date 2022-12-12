@@ -1,14 +1,40 @@
 import React from 'react'
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import '../App.css'
 
-class Resultados extends React.Component
+export default function UnProducto()
 {
-  render()
-  {
+    const [isLoading, setIsLoading] = useState(true);
+    const [producto, setProducto] = useState(null);
+
+    const [searchParams, setSearchParams] = useSearchParams();
+    console.log(searchParams.get('idProducto'))
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/producto/${searchParams.get('idProducto')}`)
+        .then((response) => response.json())
+        .then((producto) => {
+            setProducto(producto[0]); // ⬅️ Guardar datos
+            console.log(producto[0]);
+            setIsLoading(false); // ⬅️ Desactivar modo "cargando"
+        });
+    });
+
+    if (isLoading) {
+        return (
+          <div className="App">
+            <div class="resultados">
+                <p>Cargando</p>
+            </div>
+          </div>
+        );
+      }
+
     return (
         <main class="producto-container">
             <div class="fotos">
-                <img src="img/cpu-resultado.png" alt="Foto del Componente"/>
+                <img src={"img/"+producto.imagen} alt="Foto del Componente"/>
             
                 <div class="fotitos-xd">
                     <img src="img/cpu-resultado.png" alt="Foto GPU"/>
@@ -32,12 +58,12 @@ class Resultados extends React.Component
             } */}
 
             <div class="info">
-                <h2>Titulo del Producto</h2>
+                <h2>{producto.nombre}</h2>
             
-                <h2>$6.969</h2>
+                <h2>${producto.precio}</h2>
 
-                <p>Descripcion del producto, ej: Placa de video ASUS 1660, estado del producto, tiempo de uso, etc</p>
-                <p>Informacon del vendedor, ej:  Direccion, cuando llega el pedido, la reputacion del vendedor.</p>
+                <p>{producto.descripcion}</p>
+                {/* <p>Informacon del vendedor, ej:  Direccion, cuando llega el pedido, la reputacion del vendedor.</p> */}
 
                 <div class="btn-box">
                     <div class="btn-comprar">COMPRAR</div>
@@ -46,6 +72,4 @@ class Resultados extends React.Component
             </div>
         </main>
     )
-  }
 }
-export default Resultados;

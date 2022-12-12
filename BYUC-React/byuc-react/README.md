@@ -1,5 +1,30 @@
+## Integración
+- [x] Resultados por categoría.
+- [x] Producto por ID.
+- [x] Producto por idUsuario.
+- [x] Mostrar deseados.
+- [x] Mostrar un perfil de usuario.
+
+- [x] Signup.
+- [ ] Login.
+- [ ] Publicar producto.
+- [ ] Agregar a deseados.
+- [ ] Carrito.
+
+- [ ] Arreglar imágenes.
+
+
+
+
+
+
+
+
+
+## React Frontend
+
 - [x] Integrar Header y Footer.
-- [ ] Crear rutas.
+- [x] Crear rutas.
 - [x] Card component.
 - [x] Mudar la Home.
 - [x] Pantalla de login y signup.

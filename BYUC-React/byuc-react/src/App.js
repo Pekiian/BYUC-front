@@ -7,6 +7,8 @@ import Perfil from './site/Perfil';
 import MisProductos from './site/MisProductos';
 import AddProducto from './site/AddProducto';
 import Resultados from './site/Resultados';
+import UnProducto from './site/UnProducto';
+import Carrito from './site/Carrito';
 import { BrowserRouter as Router, Routes, Route}
     from 'react-router-dom';
 // import UnProducto from './site/UnProducto';
@@ -23,6 +25,8 @@ function App() {
           <Route path='/agregar-producto' element={<AddProducto/>} />
           <Route path='/login' element={<Login/>} />
           <Route path='/resultados' element={<Resultados/>} />
+          <Route path='/producto' element={<UnProducto/>} />
+          <Route path='/carrito' element={<Carrito/>} />
       </Routes>
       <Footer></Footer>
       </Router>

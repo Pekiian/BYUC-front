@@ -1,26 +1,47 @@
 import React from 'react'
 import '../App.css'
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import ProductCard from '../components/productCard'
 
-class Carrito extends React.Component
+export default function Carrito()
 {
-  render()
-  {
+    const [isLoading, setIsLoading] = useState(true);
+    const [producto, setProducto] = useState(null);
+
+    const [searchParams, setSearchParams] = useSearchParams();
+    console.log(searchParams.get('id'))
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/mis-productos/${searchParams.get('id')}`)
+        .then((response) => response.json())
+        .then((producto) => {
+            setProducto(producto); // ⬅️ Guardar datos
+            console.log(producto);
+            setIsLoading(false); // ⬅️ Desactivar modo "cargando"
+        });
+    });
+
+    if (isLoading) {
+        return (
+          <div className="App">
+            <div class="resultados">
+                <p>Cargando</p>
+            </div>
+          </div>
+        );
+      }
     return (
         <main class="mis-productos">
             <div class="los-mios">
                 <h2>Mis Publicaciones</h2>
 
                 <div class="no-los-tuyos">
-                    <ProductCard data={{id:1, imagen:"cpu-resultado.png", nombre: "Procesador gamer AMD Ryzen 5 5600G 100-100000252BOX", descripcion: "6 núcleos y 4.4GHz de frecuencia con gráfica integrada", precio:"17.090"}}></ProductCard>
-                    {/* <div class="card-resultado">
-                        <img src="img/cpu-resultado.png" alt="Foto de un CPU"/>
-            
-                        <div class="info-resultado">
-                            <h4>Procesador gamer AMD Ryzen 5 5600G 100-100000252BOX</h4>
-                            <p>6 núcleos y 4.4GHz de frecuencia con gráfica integrada  - $17.090</p>
-                        </div>
-                    </div> */}
+                {producto.map(product => {
+                    return(
+                        <ProductCard data={product}></ProductCard>
+                    )
+                })}
                 </div>
             </div>
 
@@ -45,7 +66,6 @@ class Carrito extends React.Component
             </div>
         </main>
     )
-  }
+
 }
-export default Carrito;
 
